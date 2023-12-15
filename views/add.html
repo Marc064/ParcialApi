@@ -14,7 +14,37 @@
     <a type="button" class="btn btn-danger" href="/remove-dish">Eliminar</a>
 
     <h1>Agregar Platos</h1>
-
+    <form class="row g-3">
+        <div class="col-auto">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" id="id" placeholder="Ingresar Id del plato">
+          </div>
+        <div class="col-auto">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" placeholder="Ingresar Nombre">
+          </div>
+        <div class="col-auto">
+            <label for="calories">Calorias</label>
+            <input type="number" class="form-control" id="calories" placeholder="Ingresar Calorias">
+          </div>
+          <label >¿Vegetariano?</label>
+          <select class="form-select col-auto" aria-label="¿Vegetariano?" id="vetarian">
+            <option value="1">Si</option>
+            <option value="2">No</option>
+          </select>
+        <div class="col-auto">
+            <label for="value">Valor</label>
+            <input type="number" class="form-control" id="value" placeholder="Ingresar Valor">
+          </div>
+        <div class="col-auto">
+            <label for="comments">Comentarios</label>
+            <input type="text" class="form-control" id="comments" placeholder="Ingresar Comentarios">
+          </div>
+          <br>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" id="agregar" type="button">Agregar</button>
+        </div>
+      </form>
     <script src="js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

@@ -128,3 +128,49 @@ try {
 } catch (err) {
     console.log(err)
 }
+
+const loadFields = () => {
+    const idValue = document.getElementById('id').value
+    const nameValue = document.getElementById('name').value
+    const caloriesValue = document.getElementById('calories').value
+    const vetarianValue = document.getElementById('vetarian').value == 1
+    const valueValue = document.getElementById('value').value
+    const commentsValue = document.getElementById('comments').value
+
+    const data = { "idDish": idValue, "name": nameValue, "calories": caloriesValue, "isVegetarian": vetarianValue, "value": valueValue, "comments":commentsValue }
+
+    return JSON.stringify(data)
+}
+const agregar = (URI) =>{
+    return new Promise ((res, rej)=>{
+        fetch(URI,{
+            method:'POST',
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:loadFields()
+        })
+        .then( result => result.json())
+        .then(result => res(result))
+        .catch(err => console.log(err))
+    })
+}
+try {
+    document.getElementById('agregar').addEventListener('click', () => {
+        if (id !== '') {
+            const URI = `https://api-dishes.vercel.app/`
+            agregar(URI)
+                .then(result =>{
+                    if (result.state) {
+                        alert("El plato  se guardo con exito")
+                    }else{
+                        alert(`No se pudo guardar el plato`)
+                    }
+                })
+        }else{
+            alert("Debe rellenar todos los campos")
+        }
+    })
+} catch (err) {
+    console.log(err)
+}
